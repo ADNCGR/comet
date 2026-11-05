@@ -1,0 +1,837 @@
+/* The blocks shared by the inner pages (contact, ranges, service, company,
+   stock, news). Same tokens as the home page: ink, paper, navy; Poppins and
+   Inter; motion only from scrolling and clicking. */
+
+/* -------------------------------- section head -------------------------------- */
+
+.pg-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px 48px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.pg-head > div {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
+}
+
+.pg-head .t-lead {
+  max-width: 560px;
+}
+
+/* ------------------------------------ aside ----------------------------------- */
+
+/* a head on the left that stays while the content on the right scrolls */
+.pg-aside {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 40px 80px;
+  align-items: start;
+}
+
+.pg-aside > header {
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 961px) {
+  .pg-aside > header {
+    position: sticky;
+    top: calc(var(--nav-top) + var(--nav-h) + 32px);
+  }
+}
+
+@media (max-width: 960px) {
+  .pg-aside {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------ intro ----------------------------------- */
+
+/* the statement on the left, the reading on the right */
+.pg-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px 80px;
+  align-items: start;
+}
+
+.pg-intro > header {
+  display: grid;
+  gap: 18px;
+}
+
+.pg-intro-text {
+  display: grid;
+  gap: 18px;
+}
+
+.pg-intro-text .t-lead {
+  color: var(--text);
+}
+
+.on-dark .pg-intro-text .t-lead {
+  color: #fff;
+}
+
+@media (max-width: 860px) {
+  .pg-intro {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------ split ----------------------------------- */
+
+/* a photo and its text side by side */
+.pg-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 40px 80px;
+  align-items: center;
+}
+
+.pg-split + .pg-split {
+  margin-top: clamp(72px, 9vw, 128px);
+}
+
+.pg-split--flip .pg-split-media {
+  order: 2;
+}
+
+.pg-split-media {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 22px;
+  background: var(--paper-2);
+}
+
+.pg-split-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pg-split-body {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+@media (max-width: 860px) {
+  .pg-split {
+    grid-template-columns: 1fr;
+  }
+
+  .pg-split--flip .pg-split-media {
+    order: 0;
+  }
+}
+
+/* ------------------------------------ list ------------------------------------ */
+
+/* numbered rows: services, steps, principles */
+.pg-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hair);
+}
+
+.pg-list > li {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: baseline;
+  gap: 10px 32px;
+  padding: clamp(24px, 3vw, 34px) 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.pg-list-num {
+  font-family: var(--heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.pg-list h3 {
+  font-family: var(--heading);
+  font-size: clamp(22px, 2.3vw, 32px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+}
+
+.pg-list p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+.on-dark .pg-list,
+.on-dark .pg-list > li {
+  border-color: var(--line-dark);
+}
+
+.on-dark .pg-list-num {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.on-dark .pg-list p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 760px) {
+  .pg-list > li {
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+
+  .pg-list > li > p,
+  .pg-list > li > div {
+    grid-column: 2;
+  }
+}
+
+/* ------------------------------------ cards ----------------------------------- */
+
+/* links to a document or a page */
+.pg-docs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+}
+
+.pg-doc {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 10px;
+  padding: clamp(24px, 2.6vw, 32px);
+  border: 1px solid var(--hair);
+  border-radius: 22px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, scale 0.35s var(--ease);
+}
+
+a.pg-doc:hover {
+  border-color: #c3cad5;
+}
+
+a.pg-doc:active {
+  scale: 0.985;
+}
+
+.pg-doc-kind {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.pg-doc h3 {
+  font-family: var(--heading);
+  font-size: clamp(19px, 1.6vw, 23px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.pg-doc p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.pg-doc .link-arrow {
+  margin-top: 8px;
+}
+
+.on-paper .pg-doc {
+  border-color: transparent;
+}
+
+a.pg-doc:hover .link-arrow {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+/* ------------------------------------ prose ----------------------------------- */
+
+/* long reading: legal pages, the code of ethics */
+.pg-prose {
+  max-width: 74ch;
+}
+
+.pg-prose > * + * {
+  margin-top: 14px;
+}
+
+.pg-prose h2 {
+  margin-top: 56px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.pg-prose h3 {
+  margin-top: 32px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pg-prose h2:first-child,
+.pg-prose h3:first-child {
+  margin-top: 0;
+}
+
+.pg-prose p,
+.pg-prose li {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--text-2);
+}
+
+.pg-prose ul {
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+.pg-prose li + li {
+  margin-top: 6px;
+}
+
+.pg-prose a {
+  color: var(--navy);
+  text-underline-offset: 4px;
+}
+
+.pg-prose .pg-note {
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: var(--paper);
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+/* ----------------------------------- contacts --------------------------------- */
+
+.ct-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 48px 72px;
+  align-items: start;
+}
+
+.ct-intro {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 961px) {
+  .ct-intro {
+    position: sticky;
+    top: calc(var(--nav-top) + var(--nav-h) + 32px);
+  }
+}
+
+.ct-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hair);
+}
+
+.ct-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 2px 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hair);
+  color: inherit;
+  text-decoration: none;
+}
+
+.ct-ico {
+  display: grid;
+  place-items: center;
+  grid-row: span 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+}
+
+.ct-ico svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ct-ico--wa {
+  color: #1faa53;
+}
+
+.ct-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.ct-value {
+  font-family: var(--heading);
+  font-size: clamp(17px, 1.5vw, 19px);
+  font-weight: 600;
+  color: var(--text);
+  overflow-wrap: break-word;
+  transition: color 0.2s ease;
+}
+
+a.ct-row:hover .ct-value {
+  color: var(--navy);
+}
+
+.ct-note {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.ct-card {
+  padding: clamp(22px, 3.4vw, 44px);
+  border-radius: 26px;
+  background: #fff;
+}
+
+@media (max-width: 960px) {
+  .ct-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ct-card {
+    margin-inline: calc(var(--pad) * -0.5);
+    border-radius: 22px;
+  }
+}
+
+/* the e-mail address stays on one line down to 320 px */
+@media (max-width: 400px) {
+  .ct-value {
+    font-size: 16px;
+  }
+}
+
+/* ------------------------------------ chips ----------------------------------- */
+
+/* a row of filters; the chosen one is ink */
+.pg-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pg-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--heading);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, scale 0.35s var(--ease);
+}
+
+.pg-chip:hover {
+  border-color: #c3cad5;
+}
+
+.pg-chip:active {
+  scale: 0.96;
+}
+
+.pg-chip[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.pg-chip small {
+  font-family: var(--body);
+  font-size: 12.5px;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+/* a scrolling row on phones instead of three lines of chips */
+@media (max-width: 640px) {
+  .pg-chips--scroll {
+    flex-wrap: nowrap;
+    margin-inline: calc(var(--pad) * -1);
+    padding-inline: var(--pad);
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-padding-inline: var(--pad);
+  }
+
+  .pg-chips--scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pg-chips--scroll .pg-chip {
+    flex: none;
+  }
+}
+
+/* ---------------------------------- machines ---------------------------------- */
+
+/* a machine card: photo, name, height, two ways on */
+.pg-machines {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.pg-machine {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.pg-machine-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-2);
+}
+
+.pg-machine-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pg-machine-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(11, 15, 22, 0.78);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.pg-machine-body {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 8px;
+  padding: 22px 22px 20px;
+}
+
+.pg-machine-height {
+  font-family: var(--heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.pg-machine h3 {
+  font-family: var(--heading);
+  font-size: clamp(20px, 1.7vw, 23px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.pg-machine h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the whole card opens the range */
+.pg-machine h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pg-machine p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.pg-machine-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-top: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hair);
+}
+
+.pg-machine-foot .link-arrow {
+  font-size: 14.5px;
+}
+
+/* the quote link sits above the card's own link */
+.pg-machine-quote {
+  position: relative;
+  z-index: 2;
+  font-family: var(--heading);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pg-machine-quote:hover {
+  color: var(--navy);
+}
+
+.pg-machine:has(h3 a:hover) .link-arrow {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+.pg-empty {
+  padding: 48px 24px;
+  border-radius: 22px;
+  background: #fff;
+  text-align: center;
+  color: var(--text-2);
+}
+
+/* ------------------------------------ band ------------------------------------ */
+
+/* a slim dark band that hands over to a person */
+.pg-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: 26px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.pg-band > div {
+  display: grid;
+  gap: 10px;
+  max-width: 620px;
+}
+
+.pg-band h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.1;
+}
+
+.pg-band p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.pg-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .pg-band-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  /* long labels wrap instead of pushing the page sideways at 320 px */
+  .pg-band-actions .btn {
+    height: auto;
+    min-height: 52px;
+    padding-block: 14px;
+    line-height: 1.25;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ----------------------------------- timeline --------------------------------- */
+
+.pg-years {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pg-year {
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+  gap: 20px 56px;
+  padding: clamp(32px, 4.4vw, 56px) 0;
+  border-top: 1px solid var(--hair);
+}
+
+.pg-year-date {
+  font-family: var(--heading);
+  font-size: clamp(44px, 6vw, 88px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.pg-year-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 178px;
+  gap: 18px 36px;
+  align-items: start;
+}
+
+.pg-year-body > div {
+  display: grid;
+  gap: 12px;
+}
+
+.pg-year-body img {
+  display: block;
+  width: 178px;
+  height: 140px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: var(--paper-2);
+}
+
+@media (max-width: 860px) {
+  .pg-year {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .pg-year-body {
+    grid-template-columns: 1fr;
+  }
+
+  .pg-year-body img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 178 / 140;
+  }
+}
+
+/* ------------------------------------ facts ----------------------------------- */
+
+/* a few key facts, big, in a row */
+.pg-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  margin: 0;
+  border-top: 1px solid var(--hair);
+}
+
+.pg-facts > div {
+  display: grid;
+  gap: 6px;
+  padding: 26px 24px 4px 0;
+}
+
+.pg-facts dt {
+  order: 2;
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.pg-facts dd {
+  order: 1;
+  margin: 0;
+  font-family: var(--heading);
+  font-size: clamp(34px, 3.6vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+
+/* ----------------------------------- 404 page --------------------------------- */
+
+.pg-lost {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.pg-lost-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ------------------------------------ specs ----------------------------------- */
+
+.pg-specs {
+  display: grid;
+  width: 100%;
+  margin: 4px 0 0;
+  border-top: 1px solid var(--hair);
+}
+
+.pg-specs > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 4px 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.pg-specs dt {
+  font-size: 14.5px;
+  color: var(--text-2);
+}
+
+.pg-specs dt::first-letter {
+  text-transform: uppercase;
+}
+
+.pg-specs dd {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: pre-line;
+}
+
+@media (max-width: 480px) {
+  .pg-specs > div {
+    grid-template-columns: 1fr;
+  }
+}

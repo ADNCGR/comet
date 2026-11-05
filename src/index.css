@@ -1,0 +1,470 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================================
+   COMET Maroc: the design system
+   Ink for the dark screens, paper for the light ones, the logo's navy for
+   the actions. Poppins for every title, Inter for reading, nothing else.
+   Motion comes from scrolling, clicking and changing page, never from
+   hovering, and it stays fast: 0.55 s on a sharp ease-out.
+   =========================================================================== */
+
+@layer base {
+  :root {
+    --ink: #0b0f16;
+    --ink-2: #121821;
+    --ink-3: #1b2330;
+    --navy: #0a3a78;          /* the logo's C.O.M.E.T. */
+    --navy-deep: #072b5a;
+    --paper: #f3f4f6;
+    --paper-2: #e8ebef;
+    --text: #0e1520;
+    --text-2: #4a5466;
+    --hair: #e0e4ea;
+    --line-dark: rgba(255, 255, 255, 0.12);
+    --red: #c2272d;           /* the flag, used as sparingly as on the logo */
+
+    --heading: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur: 0.55s;
+    --pad: clamp(16px, 4.4vw, 56px);
+    --max: 1280px;
+    --nav-h: 64px;
+    --nav-top: 12px;
+    --dock-h: 0px;            /* the phone action bar, when it shows */
+
+    /* shadcn/ui tokens (HSL), kept in step with the colours above */
+    --background: 0 0% 100%;
+    --foreground: 216 39% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 216 39% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 39% 9%;
+    --primary: 213 85% 26%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 78% 19%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 216 39% 9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 218 16% 34%;
+    --accent: 220 14% 94%;
+    --accent-foreground: 216 39% 9%;
+    --destructive: 357 66% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 216 16% 90%;
+    --input: 216 16% 86%;
+    --ring: 213 85% 26%;
+    --radius: 0.875rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* the phone menu is open: the page underneath stays put */
+  html.menu-open {
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--heading);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  ::selection {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 3px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: #fff;
+  }
+}
+
+@layer components {
+  /* ------------------------------- layout ------------------------------- */
+
+  .wrap {
+    width: 100%;
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-inline: var(--pad);
+  }
+
+  .section {
+    padding-block: clamp(80px, 11vw, 150px);
+  }
+
+  .section--tight {
+    padding-block: clamp(56px, 7vw, 96px);
+  }
+
+  .on-dark {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .on-paper {
+    background: var(--paper);
+  }
+
+  /* ----------------------------- typography ----------------------------- */
+
+  .eyebrow {
+    display: block;
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+
+  .on-dark .eyebrow {
+    color: rgba(255, 255, 255, 0.66);
+  }
+
+  .t-display {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: clamp(40px, 6.4vw, 100px);
+    line-height: 1.03;
+    letter-spacing: 0.015em;
+  }
+
+  .t-h1 {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: clamp(38px, 5.4vw, 80px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+
+  .t-h2 {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: clamp(32px, 4.3vw, 60px);
+    line-height: 1.07;
+    letter-spacing: 0;
+  }
+
+  .t-h3 {
+    font-family: var(--heading);
+    font-weight: 600;
+    font-size: clamp(20px, 1.7vw, 25px);
+    line-height: 1.22;
+    letter-spacing: -0.005em;
+  }
+
+  .t-lead {
+    font-size: clamp(17px, 1.3vw, 20px);
+    line-height: 1.6;
+    color: var(--text-2);
+  }
+
+  .on-dark .t-lead {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .t-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-2);
+  }
+
+  .on-dark .t-body {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* a whole screen with the title bold in the middle */
+  .screen-title {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-content: center;
+    padding: 0 var(--pad);
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: clamp(44px, 7.4vw, 116px);
+    line-height: 1.04;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #fff;
+    pointer-events: none;
+  }
+
+  /* ------------------------------- buttons ------------------------------ */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 26px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-family: var(--heading);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, scale 0.35s var(--ease);
+  }
+
+  .btn:active {
+    scale: 0.96;
+  }
+
+  .btn svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+  }
+
+  .btn--sm {
+    height: 42px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
+
+  .btn--solid {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .btn--solid:hover {
+    background: var(--navy-deep);
+  }
+
+  .btn--light {
+    background: #fff;
+    color: var(--ink);
+  }
+
+  .btn--light:hover {
+    background: #e6e9ee;
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.34);
+  }
+
+  .btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .btn--line {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--hair);
+  }
+
+  .btn--line:hover {
+    background: var(--paper);
+  }
+
+  .btn--wa {
+    background: #1faa53;
+    color: #fff;
+  }
+
+  .btn--wa:hover {
+    background: #178a43;
+  }
+
+  .btn[disabled] {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  /* a text link that leads somewhere */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--heading);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .link-arrow svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .link-arrow:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+  }
+
+  .on-dark .link-arrow {
+    color: #fff;
+  }
+
+  /* -------------------------------- reveals ------------------------------
+     .lines: a title whose lines slide up from behind a mask, one after the
+     other (<span><span style="--i:n">line</span></span>).
+     .rise: a block that comes up and in. Both get .is-in from
+     useRevealObserver as they enter the screen. */
+
+  .lines > span {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+  }
+
+  .lines > span > span {
+    display: block;
+    translate: 0 108%;
+    transition: translate var(--dur) var(--ease);
+    transition-delay: calc(var(--i, 0) * 110ms + var(--d, 0ms));
+  }
+
+  .lines.is-in > span > span {
+    translate: 0 0;
+  }
+
+  .rise {
+    opacity: 0;
+    translate: 0 26px;
+    transition: opacity var(--dur) var(--ease), translate var(--dur) var(--ease);
+    transition-delay: calc(var(--i, 0) * 80ms + var(--d, 0ms));
+  }
+
+  .rise.is-in {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  /* ------------------------------- fields ------------------------------- */
+
+  .field {
+    display: grid;
+    gap: 8px;
+  }
+
+  .field > span {
+    font-family: var(--heading);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .field > span em {
+    font-style: normal;
+    color: var(--text-2);
+    font-weight: 400;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 16px;
+    border: 1px solid var(--hair);
+    border-radius: 12px;
+    background: #fff;
+    font: inherit;
+    font-size: 16px;
+    color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .field textarea {
+    min-height: 128px;
+    resize: vertical;
+    line-height: 1.55;
+  }
+
+  .field select {
+    appearance: none;
+    padding-right: 44px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%234a5466' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: #8a93a2;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(10, 58, 120, 0.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lines > span > span,
+  .rise {
+    translate: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .btn:active {
+    scale: none;
+  }
+}
+
+/* a photo settling into place as its page opens */
+@keyframes ph-settle {
+  from {
+    scale: 1.06;
+  }
+}

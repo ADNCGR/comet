@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- SEO before the app loads; each page then sets its own (src/seo/Seo.tsx) -->
+  <title>Nacelles élévatrices COMET au Maroc · Pick-up, van &amp; camion | COMET Maroc</title>
+  <meta name="description"
+    content="COMET Maroc : nacelles élévatrices C.O.M.E.T. sur pick-up 4×4, van et camion. Devis, démonstration et accompagnement depuis Casablanca pour les professionnels du travail en hauteur." />
+  <meta name="keywords"
+    content="nacelle élévatrice Maroc, nacelle sur camion, nacelle pick-up, nacelle sur van, plateforme élévatrice, travaux en hauteur, COMET Maroc, C.O.M.E.T, Casablanca" />
+  <meta name="author" content="COMET Maroc" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+  <link rel="canonical" href="https://www.comet.ma/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <link rel="alternate" hreflang="fr" href="https://www.comet.ma/" />
+  <link rel="alternate" hreflang="fr-MA" href="https://www.comet.ma/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.comet.ma/" />
+
+  <meta name="theme-color" content="#0b0f16" />
+  <meta name="color-scheme" content="light" />
+  <meta name="geo.region" content="MA" />
+  <meta name="geo.placename" content="Casablanca" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.comet.ma/" />
+  <meta property="og:title" content="Nacelles élévatrices COMET au Maroc" />
+  <meta property="og:site_name" content="COMET Maroc" />
+  <meta property="og:locale" content="fr_MA" />
+  <meta property="og:description"
+    content="Nacelles C.O.M.E.T. sur pick-up 4×4, van et camion : devis, démonstration et accompagnement depuis Casablanca." />
+  <meta property="og:image" content="https://www.comet.ma/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Nacelle COMET montée sur un pick-up 4×4" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.comet.ma/" />
+  <meta name="twitter:title" content="Nacelles élévatrices COMET au Maroc" />
+  <meta name="twitter:description" content="Nacelles C.O.M.E.T. sur pick-up, van et camion : devis et accompagnement depuis Casablanca." />
+  <meta name="twitter:image" content="https://www.comet.ma/og-image.jpg" />
+
+  <!-- Poppins for titles, Inter for reading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Structured data: COMET Maroc -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.comet.ma/#organization",
+          "name": "COMET Morocco",
+          "alternateName": ["COMET Maroc", "C.O.M.E.T"],
+          "url": "https://www.comet.ma/",
+          "logo": { "@type": "ImageObject", "url": "https://www.comet.ma/logo.png" },
+          "description": "Représentation commerciale au Maroc des nacelles élévatrices C.O.M.E.T., conçues et fabriquées en Italie depuis 1960.",
+          "email": "contact@cometmaroc.com",
+          "address": { "@type": "PostalAddress", "addressLocality": "Casablanca", "addressCountry": "MA" },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+212-640-850-380",
+            "contactType": "sales",
+            "availableLanguage": ["French", "Arabic"],
+            "areaServed": { "@type": "Country", "name": "Morocco" }
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.comet.ma/#website",
+          "name": "COMET Maroc",
+          "url": "https://www.comet.ma/",
+          "inLanguage": "fr-MA",
+          "publisher": { "@id": "https://www.comet.ma/#organization" }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.comet.ma/#local",
+          "name": "COMET Maroc",
+          "image": "https://www.comet.ma/og-image.jpg",
+          "url": "https://www.comet.ma/",
+          "telephone": "+212-640-850-380",
+          "email": "contact@cometmaroc.com",
+          "parentOrganization": { "@id": "https://www.comet.ma/#organization" },
+          "address": { "@type": "PostalAddress", "addressLocality": "Casablanca", "addressCountry": "MA" },
+          "areaServed": { "@type": "Country", "name": "Morocco" }
+        }
+      ]
+    }
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "COMET Maroc — Nacelles élévatrices",
+  "short_name": "COMET Maroc",
+  "description": "Nacelles élévatrices C.O.M.E.T. sur pick-up, van et camion, avec devis et accompagnement au Maroc.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#0b0f16",
+  "lang": "fr",
+  "dir": "ltr"
+}

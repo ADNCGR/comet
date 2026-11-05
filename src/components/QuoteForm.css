@@ -1,0 +1,176 @@
+/* The quote request (QuoteForm.tsx) */
+
+.qf {
+  scroll-margin-top: calc(var(--nav-top) + var(--nav-h) + 24px);
+  color: var(--text);
+}
+
+.qf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 18px;
+}
+
+.qf-wide {
+  grid-column: 1 / -1;
+}
+
+.qf-needs {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.qf-needs legend {
+  margin-bottom: 10px;
+  font-family: var(--heading);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.qf-needs > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.qf-chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.qf-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.qf-chip span {
+  display: inline-flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  font-family: var(--heading);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  background: #fff;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, scale 0.35s var(--ease);
+}
+
+.qf-chip:active span {
+  scale: 0.95;
+}
+
+.qf-chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.qf-chip input:focus-visible + span {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.qf-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.qf-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+  margin-top: 26px;
+}
+
+.qf-note {
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.qf-error {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fdf0f0;
+  font-size: 15px;
+  color: #8f1d22;
+}
+
+.qf-error a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* sent, or handed over to WhatsApp */
+.qf-done {
+  display: grid;
+  justify-items: start;
+  gap: 14px;
+  padding: 8px 0;
+  animation: qf-in var(--dur) var(--ease) both;
+}
+
+.qf-done p {
+  max-width: 52ch;
+  color: var(--text-2);
+}
+
+.qf-done-mark {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+}
+
+.qf-done-mark svg {
+  width: 24px;
+  height: 24px;
+}
+
+.qf-done-mark--wa {
+  background: #1faa53;
+}
+
+.qf-done-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-top: 6px;
+}
+
+@keyframes qf-in {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .qf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qf-foot .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qf-done {
+    animation: none;
+  }
+}

@@ -1,0 +1,6 @@
+project_id = "qzjdtblphgjwcqnateig"
+
+# Note: Edge Functions are no longer used for contact forms
+# Contact forms now use Web3Forms for email delivery
+# [functions.send-contact-form]
+# verify_jwt = false

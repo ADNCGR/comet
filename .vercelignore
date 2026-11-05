@@ -1,0 +1,4 @@
+﻿node_modules/
+Target website/
+.git/
+.vercel/

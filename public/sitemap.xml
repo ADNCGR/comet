@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://www.comet.ma/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.comet.ma/" />
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://www.comet.ma/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.comet.ma/" />
+  </url>
+
+  <url>
+    <loc>https://www.comet.ma/produits</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.comet.ma/produits" />
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://www.comet.ma/produits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.comet.ma/produits" />
+  </url>
+
+  <url>
+    <loc>https://www.comet.ma/secteurs</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.comet.ma/secteurs" />
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://www.comet.ma/secteurs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.comet.ma/secteurs" />
+  </url>
+
+  <url>
+    <loc>https://www.comet.ma/a-propos</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.comet.ma/a-propos" />
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://www.comet.ma/a-propos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.comet.ma/a-propos" />
+  </url>
+
+  <url>
+    <loc>https://www.comet.ma/contact</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.comet.ma/contact" />
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://www.comet.ma/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.comet.ma/contact" />
+  </url>
+</urlset>
